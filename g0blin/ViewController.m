@@ -199,6 +199,14 @@ uint64_t kbase;
         //waitpid(pid, 0, 0);
     }
     else {
+        //Substrate
+        pid_t thepid;
+        posix_spawn(&thepid, "/usr/libexec/substrate", 0, 0, (char**)&(const char*[]){"/usr/libexec/substrate", NULL}, NULL);
+        waitpid(thepid, 0, 0);
+        //SSH
+        posix_spawn(&thepid, "/bin/launchctl", 0, 0, (char**)&(const char*[]){"/bin/launchctl", "load", "/Library/LaunchDaemons/dropbear.plist", NULL}, NULL);
+        waitpid(thepid, 0, 0);
+        
         LOG("starting jailbreakd...");
         [self log:@"Waiting for Cydia, please open Cydia..."];
         extern void startJBD(void);
