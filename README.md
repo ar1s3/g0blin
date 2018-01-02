@@ -4,6 +4,7 @@
 
 v0rtex + yalu102 + jailbreakd
 
+IPA: https://github.com/thisiswisy/g0blin/releases/download/idk/g0blin_v1.ipa
 ## what I added
 - fixed reboot bug on some devices (updated exploit)
 - way more offsets
@@ -48,4 +49,4 @@ If you want to just enable tweaks disable jailbreakd in the Settings page, if yo
 
 thanks to everyone helping out, finding offsets, testing, etc!
 
-creds: Lucky Tobasco, Sizuga, Xenu, Saurik
+creds: Luca Todesco, Siguza, Xerub, Saurik, @theninjaprawn
