@@ -25,6 +25,26 @@ If you want to just enable tweaks disable jailbreakd in the Settings page, if yo
 - Filza can be fixed by applying the same extra entitlement given to Cydia
 - I am trying to figure out the problem
 
+## Supported devices
+- iPhone 5S (10.3 - 10.3.3)
+- iPhone 6/6 Plus (10.3 - 10.3.3)
+- iPhone 6S/6S Plus (10.3 - 10.3.3)
+- iPhone SE (10.3 - 10.3.3)
+- iPad Mini 3 (10.3 - 10.3.3)
+- iPad Mini 4 (10.3 - 10.3.3)
+- iPad Air 2 (10.3 - 10.3.3)
+- iPad Pro 12.9" 1st gen (10.3.3)
+
+## Planned support
+- iPad Pro 12.9" 1st gen (10.3-10.3.2)
+- iPad Mini 2 (10.3 - 10.3.3)
+- iPad Pro 9.7" (10.3 - 10.3.3)
+
+## Not supported
+- iPhone 7/7 Plus
+- iPad Pro 12.9" 2nd gen
+- iPad Pro 10.5"
+- iPad 5 (aka iPad 2017)
 
 thanks to everyone helping out, finding offsets, testing, etc!
 
