@@ -140,6 +140,9 @@ kern_return_t do_bootstrap(bool force) {
     chown("/var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate", 0, 0);
     LOG("killed OTA updater");
     
+    //fix firmware dependency
+    posix_spawn(&pd, "/bin/bash", 0, 0, (char**)&(const char*[]){"/bin/bash", "-c", """/usr/libexec/cydia/firmware.sh""", NULL}, NULL);
+    waitpid(pd, 0, 0);
     LOG("finished bootstrapping");
         
     return KERN_SUCCESS;
