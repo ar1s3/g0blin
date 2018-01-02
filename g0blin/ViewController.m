@@ -25,15 +25,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UITextView *consoleView;
+@property (weak, nonatomic) IBOutlet UILabel *cydiaJailbreeakdLabel;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UILabel *reinstallBootstrapLabel;
 @end
 
 
-static task_t tfp0;
-static uint64_t kslide;
-static uint64_t kbase;
-static uint64_t kcred;
+task_t tfp0;
+kptr_t kslide;
+kptr_t kcred;
+uint64_t kbase;
+
 
 
 @implementation ViewController
@@ -51,7 +53,7 @@ static uint64_t kcred;
     self.goButton.layer.cornerRadius = 16;
     
     self.reinstallBootstrapLabel.hidden = YES;
-    
+    self.cydiaJailbreeakdLabel.hidden = YES;
     
     // print kernel version
     struct utsname u;
@@ -62,14 +64,14 @@ static uint64_t kcred;
     if (strstr(u.version, "MarijuanARM")) {
         self.goButton.enabled = NO;
         self.goButton.backgroundColor = UIColor.darkGrayColor;
-        [self.goButton setTitle:@"jailbroke yo!" forState:UIControlStateDisabled];
+        [self.goButton setTitle:@"Already jailbroken!" forState:UIControlStateDisabled];
     }
     
     
-    if (init_offsets() != KERN_SUCCESS) {
+    if (init_offsets() != YES) {
         self.goButton.enabled = NO;
         self.goButton.backgroundColor = UIColor.darkGrayColor;
-        [self.goButton setTitle:@"device not supported" forState:UIControlStateDisabled];
+        [self.goButton setTitle:@"Not supported yet!" forState:UIControlStateDisabled];
         return;
     }
     
@@ -90,38 +92,38 @@ static uint64_t kcred;
     
     SettingsController *settingsController = segue.sourceViewController;
     self.reinstallBootstrapLabel.hidden = !settingsController.reinstallBootstrapSwitch.on;
+    self.cydiaJailbreeakdLabel.hidden = !settingsController.enableJailbreakdSwitch.on;
 }
 
 - (IBAction)go:(UIButton *)sender {
     self.goButton.enabled = NO;
     self.goButton.backgroundColor = UIColor.darkGrayColor;
-    [self.goButton setTitle:@"jailbreaking" forState:UIControlStateDisabled];
+    [self.goButton setTitle:@"Jailbreaking..." forState:UIControlStateDisabled];
     
     self.progressView.hidden = NO;
     [self.progressView setProgress:0.1 animated:YES];
     
-    [self log:@"exploiting kernel"];
+    [self log:@"Running exploit..."];
     
-    kern_return_t ret = v0rtex(&tfp0, &kslide, &kcred);
+    kern_return_t ret = v0rtex(NULL, NULL, &tfp0, &kslide, &kcred);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (ret != KERN_SUCCESS) {
             self.goButton.enabled = YES;
             self.goButton.backgroundColor = GRAPE;
-            [self.goButton setTitle:@"try again" forState:UIControlStateNormal];
+            [self.goButton setTitle:@"Failed, try again" forState:UIControlStateNormal];
             
             [self log:@"ERROR: exploit failed \n"];
             return;
         }
         LOG("v0rtex was successful");
-        LOG("tfp0 -> %x", tfp0);
-        LOG("slide -> 0x%llx", kslide);
+        LOG("tfp0 -> %u", tfp0);
+        LOG("slide -> %u", kslide);
         
         kbase = kslide + 0xFFFFFFF007004000;
-        LOG("kern base -> 0x%llx", kbase);
-        
-        LOG("kern cred -> 0x%llx", kcred);
+        LOG("kern base -> %llu", kbase);
+        LOG("kern cred -> %u", kcred);
 
         [self bypassKPP];
     });
@@ -130,12 +132,12 @@ static uint64_t kcred;
 - (void)bypassKPP {
     
     [self.progressView setProgress:0.3 animated:YES];
-    [self log:@"bypassing KPP"];
+    [self log:@"Bypassing KPP..."];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         
         if (do_kpp(1, 0, kbase, kslide, tfp0, kcred) != KERN_SUCCESS) {
-            [self log:@"ERROR: kpp bypass failed \n"];
+            [self log:@"ERROR: KPP bypass failed \n"];
             return;
         }
         LOG("fuck kpp, yolo kjc!");
@@ -147,7 +149,7 @@ static uint64_t kcred;
 - (void)remount {
 
     [self.progressView setProgress:0.5 animated:YES];
-    [self log:@"remounting / as r/w"];
+    [self log:@"Remounting..."];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 
@@ -163,7 +165,7 @@ static uint64_t kcred;
 - (void)bootstrap {
     
     [self.progressView setProgress:0.6 animated:YES];
-    [self log:@"bootstrapping"];
+    [self log:@"Installing Cydia..."];
     
     BOOL force = NO;
     if (self.reinstallBootstrapLabel.hidden == NO) {
@@ -173,7 +175,7 @@ static uint64_t kcred;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         if (do_bootstrap(force) != KERN_SUCCESS) {
-            [self log:@"ERROR: failed to bootstrap \n"];
+            [self log:@"ERROR: failed to install Cydia \n"];
             return;
         }
         
@@ -183,17 +185,26 @@ static uint64_t kcred;
 
 - (void)finish {
     [self.progressView setProgress:1 animated:YES];
-    [self log:@"All done, peace!"];
+    [self log:@"SUCCESS: jailbreak done!"];
 
-    [self.goButton setTitle:@"jailbroke yo!" forState:UIControlStateDisabled];
+    [self.goButton setTitle:@"Already jailbroken" forState:UIControlStateDisabled];
     
     sleep(2);
     
-    // start launchdaemons ...
-    LOG("reloading...");
-    pid_t pid;
-    posix_spawn(&pid, "/bin/launchctl", 0, 0, (char**)&(const char*[]){"/bin/launchctl", "load", "/Library/LaunchDaemons/0.reload.plist", NULL}, NULL);
-    //waitpid(pid, 0, 0);
+    if (self.cydiaJailbreeakdLabel.hidden == NO) {
+        // start launchdaemons ...
+        LOG("reloading...");
+        pid_t pid;
+        posix_spawn(&pid, "/bin/launchctl", 0, 0, (char**)&(const char*[]){"/bin/launchctl", "load", "/Library/LaunchDaemons/0.reload.plist", NULL}, NULL);
+        //waitpid(pid, 0, 0);
+    }
+    else {
+        LOG("starting jailbreakd...");
+        [self log:@"Waiting for Cydia, please open Cydia..."];
+        extern void startJBD(void);
+        startJBD();
+    }
+    
 }
 
 @end

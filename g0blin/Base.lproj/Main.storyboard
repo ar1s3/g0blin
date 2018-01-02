@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,23 +25,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G0BLIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn4-xX-mg8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G0BLIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn4-xX-mg8">
                                 <rect key="frame" x="16" y="45" width="220" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="3Zl-6c-4Pc"/>
+                                    <constraint firstAttribute="height" constant="50" id="Bk9-vR-noD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="55"/>
                                 <color key="textColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(wip) jailbreak for iOS 10.3.x A7-A9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcM-Ne-vdF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(wip) jailbreak for iOS 10.3.x A7-A9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcM-Ne-vdF">
                                 <rect key="frame" x="16" y="97" width="288" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="ZqJ-cO-4hA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                                 <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXG-YB-Hu8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXG-YB-Hu8">
                                 <rect key="frame" x="16" y="130" width="300" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="SNy-to-Z7f"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="kernel exploit:    siguza (v0rtex) kpp bypass:        qwertyoruiop (yalu102) patchfinder:       xerub cydia, substrate:  saurik">
                                         <attributes>
@@ -52,42 +60,29 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzW-79-NNF">
-                                <rect key="frame" x="48" y="254" width="280" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
-                                <state key="normal" title="jailbreak">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bmR-QP-aJc"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="😈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUv-h9-U3S">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUv-h9-U3S">
                                 <rect key="frame" x="168" y="627" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gwZ-dx-4zF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Console" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Elh-sj-UCK">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Console" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Elh-sj-UCK">
                                 <rect key="frame" x="19" y="404" width="337" height="207"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="bbB-ma-TGm">
-                                <rect key="frame" x="48" y="353" width="280" height="3"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="bbB-ma-TGm">
+                                <rect key="frame" x="48" y="353" width="278" height="2"/>
                                 <color key="progressTintColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ida-x7-w8p">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ida-x7-w8p">
                                 <rect key="frame" x="337" y="45" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="E4R-mI-ttA" kind="popoverPresentation" popoverAnchorView="ida-x7-w8p" id="VLf-rO-Vwz">
@@ -95,19 +90,74 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="force reinstall bootstrap: YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdP-3g-Mny">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="force reinstall bootstrap: YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdP-3g-Mny">
                                 <rect key="frame" x="19" y="221" width="337" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
                                 <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enable cydia jailbreakd: YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KB5-2V-wtZ">
+                                <rect key="frame" x="20" y="202" width="335" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="SSX-zs-5Kc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzW-79-NNF">
+                                <rect key="frame" x="33" y="254" width="308" height="60"/>
+                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="VRs-W3-Flz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                <state key="normal" title="Jailbreak">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bmR-QP-aJc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LzW-79-NNF" firstAttribute="top" secondItem="KB5-2V-wtZ" secondAttribute="bottom" constant="27" id="08w-Wg-3Ed"/>
+                            <constraint firstItem="YdP-3g-Mny" firstAttribute="top" secondItem="SXG-YB-Hu8" secondAttribute="bottom" constant="27" id="0Vp-Xt-WB8"/>
+                            <constraint firstItem="LzW-79-NNF" firstAttribute="leading" secondItem="bbB-ma-TGm" secondAttribute="leading" constant="-15" id="3Bw-WT-vlR"/>
+                            <constraint firstItem="UcM-Ne-vdF" firstAttribute="leading" secondItem="SXG-YB-Hu8" secondAttribute="leading" id="4iP-4j-TN8"/>
+                            <constraint firstItem="YdP-3g-Mny" firstAttribute="centerX" secondItem="LzW-79-NNF" secondAttribute="centerX" id="9dO-L8-7ir"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SXG-YB-Hu8" secondAttribute="trailing" constant="59" id="DQY-DE-juA"/>
+                            <constraint firstItem="jn4-xX-mg8" firstAttribute="top" secondItem="ida-x7-w8p" secondAttribute="top" id="KZh-qJ-BW2"/>
+                            <constraint firstItem="SXG-YB-Hu8" firstAttribute="top" secondItem="UcM-Ne-vdF" secondAttribute="bottom" constant="8" symbolic="YES" id="MUG-Dv-pld"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DUv-h9-U3S" secondAttribute="bottom" constant="10" id="NRI-tB-SjD"/>
+                            <constraint firstItem="Elh-sj-UCK" firstAttribute="centerX" secondItem="DUv-h9-U3S" secondAttribute="centerX" id="Prn-zA-DPQ"/>
+                            <constraint firstItem="Elh-sj-UCK" firstAttribute="top" secondItem="bbB-ma-TGm" secondAttribute="bottom" constant="49" id="PvX-gw-3ZF"/>
+                            <constraint firstItem="YdP-3g-Mny" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qn3-LT-alx"/>
+                            <constraint firstItem="LzW-79-NNF" firstAttribute="trailing" secondItem="bbB-ma-TGm" secondAttribute="trailing" constant="15" id="Swa-1J-U9M"/>
+                            <constraint firstItem="YdP-3g-Mny" firstAttribute="leading" secondItem="Elh-sj-UCK" secondAttribute="leading" id="Vnf-cF-Tg1"/>
+                            <constraint firstItem="LzW-79-NNF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="WNw-Sn-XKs"/>
+                            <constraint firstItem="bbB-ma-TGm" firstAttribute="top" secondItem="LzW-79-NNF" secondAttribute="bottom" constant="39" id="Wbb-Q8-aSU"/>
+                            <constraint firstItem="jn4-xX-mg8" firstAttribute="leading" secondItem="UcM-Ne-vdF" secondAttribute="leading" id="cfh-gl-7ao"/>
+                            <constraint firstItem="jn4-xX-mg8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eyY-ak-5M4"/>
+                            <constraint firstItem="LzW-79-NNF" firstAttribute="top" secondItem="YdP-3g-Mny" secondAttribute="bottom" constant="8" symbolic="YES" id="f9b-w3-c5Z"/>
+                            <constraint firstItem="DUv-h9-U3S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="imV-Ab-SWg"/>
+                            <constraint firstItem="UcM-Ne-vdF" firstAttribute="top" secondItem="jn4-xX-mg8" secondAttribute="bottom" constant="2" id="jV5-Ef-lJb"/>
+                            <constraint firstItem="ida-x7-w8p" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kjF-Jm-bO2"/>
+                            <constraint firstItem="YdP-3g-Mny" firstAttribute="trailing" secondItem="Elh-sj-UCK" secondAttribute="trailing" id="oMn-hE-Qhh"/>
+                            <constraint firstItem="YdP-3g-Mny" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="19" id="oNR-sb-aaA"/>
+                            <constraint firstItem="KB5-2V-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pyg-A9-XE2"/>
+                            <constraint firstItem="DUv-h9-U3S" firstAttribute="top" secondItem="Elh-sj-UCK" secondAttribute="bottom" constant="16" id="rts-bn-PAW"/>
+                            <constraint firstItem="jn4-xX-mg8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="wMS-Sb-AbZ"/>
+                            <constraint firstItem="KB5-2V-wtZ" firstAttribute="top" secondItem="SXG-YB-Hu8" secondAttribute="bottom" constant="8" symbolic="YES" id="x0x-b1-6w6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UcM-Ne-vdF" secondAttribute="trailing" constant="71" id="xgC-sU-tL9"/>
+                            <constraint firstItem="KB5-2V-wtZ" firstAttribute="centerX" secondItem="LzW-79-NNF" secondAttribute="centerX" id="yLT-Sr-n2H"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="consoleView" destination="Elh-sj-UCK" id="gJk-Xf-NFc"/>
+                        <outlet property="cydiaJailbreeakdLabel" destination="KB5-2V-wtZ" id="q0A-Kh-BB7"/>
                         <outlet property="goButton" destination="LzW-79-NNF" id="z7c-UD-HAE"/>
                         <outlet property="progressView" destination="bbB-ma-TGm" id="lIa-zO-eEL"/>
                         <outlet property="reinstallBootstrapLabel" destination="YdP-3g-Mny" id="fSl-BT-ogn"/>
@@ -126,28 +176,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UjU-65-8UT">
-                                <rect key="frame" x="310" y="130" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UjU-65-8UT">
+                                <rect key="frame" x="310" y="130" width="51" height="31"/>
                                 <color key="onTintColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="force re-install bootstrap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-i7-QOK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="force re-install bootstrap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-i7-QOK">
                                 <rect key="frame" x="16" y="133" width="273" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                                 <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-8v-gf0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-8v-gf0">
                                 <rect key="frame" x="16" y="45" width="265" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="55"/>
                                 <color key="textColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mof-uo-FQE">
-                                <rect key="frame" x="157" y="603" width="60" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeD-vR-auI">
+                                <rect key="frame" x="310" y="166" width="51" height="31"/>
+                                <color key="onTintColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cydia jailbreakd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXa-0b-5Vk">
+                                <rect key="frame" x="16" y="169" width="273" height="25"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-Uu-7KV">
+                                <rect key="frame" x="16" y="205" width="343" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="ux9-0a-TgW"/>
+                                </constraints>
+                                <string key="text">cydia jailbreakd will temporarily run an infinite loop which will look for Cydia and give it root privileges. You can use it to install or remove stuff. Once you respring, quit g0blin or Cydia you have to reboot and rerun the jailbreak app. This is a temporary workaround till a proper sandbox patch for setuid(0) is out. If you do not want to use Cydia, disable this option</string>
+                                <color key="textColor" red="0.36860084533691406" green="0.36864721775054932" blue="0.36858004331588745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mof-uo-FQE">
+                                <rect key="frame" x="121" y="598" width="132" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,16 +225,39 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UjU-65-8UT" firstAttribute="trailing" secondItem="Gs4-qb-pme" secondAttribute="trailingMargin" id="DeT-Au-G53"/>
+                            <constraint firstItem="PVP-8v-gf0" firstAttribute="leading" secondItem="YTP-i7-QOK" secondAttribute="leading" id="Gp2-qf-BK2"/>
+                            <constraint firstItem="UjU-65-8UT" firstAttribute="leading" secondItem="YTP-i7-QOK" secondAttribute="trailing" constant="21" id="JcT-J1-k6r"/>
+                            <constraint firstItem="RMR-Uu-7KV" firstAttribute="top" secondItem="VeD-vR-auI" secondAttribute="bottom" constant="8" symbolic="YES" id="Lf7-Mn-7Ci"/>
+                            <constraint firstItem="RMR-Uu-7KV" firstAttribute="trailing" secondItem="VeD-vR-auI" secondAttribute="trailing" id="NVv-d2-Sdp"/>
+                            <constraint firstItem="PVP-8v-gf0" firstAttribute="top" secondItem="WAO-C2-OHy" secondAttribute="top" constant="25" id="NzI-0B-VNU"/>
+                            <constraint firstItem="dXa-0b-5Vk" firstAttribute="top" secondItem="YTP-i7-QOK" secondAttribute="bottom" constant="11" id="TWo-kM-Qth"/>
+                            <constraint firstItem="PVP-8v-gf0" firstAttribute="leading" secondItem="Gs4-qb-pme" secondAttribute="leadingMargin" id="XMf-6c-sP6"/>
+                            <constraint firstItem="RMR-Uu-7KV" firstAttribute="leading" secondItem="dXa-0b-5Vk" secondAttribute="leading" id="ZFH-l6-be7"/>
+                            <constraint firstItem="YTP-i7-QOK" firstAttribute="leading" secondItem="dXa-0b-5Vk" secondAttribute="leading" id="bkH-aN-wG9"/>
+                            <constraint firstItem="YTP-i7-QOK" firstAttribute="top" secondItem="PVP-8v-gf0" secondAttribute="bottom" constant="23" id="fDQ-gq-fEt"/>
+                            <constraint firstItem="UjU-65-8UT" firstAttribute="leading" secondItem="VeD-vR-auI" secondAttribute="leading" id="fqR-lC-V8B"/>
+                            <constraint firstItem="YTP-i7-QOK" firstAttribute="trailing" secondItem="dXa-0b-5Vk" secondAttribute="trailing" id="jpR-gD-pMN"/>
+                            <constraint firstItem="Mof-uo-FQE" firstAttribute="centerX" secondItem="Gs4-qb-pme" secondAttribute="centerX" id="kL6-gD-R5O"/>
+                            <constraint firstItem="VeD-vR-auI" firstAttribute="top" secondItem="UjU-65-8UT" secondAttribute="bottom" constant="5" id="krQ-ZV-pPX"/>
+                            <constraint firstItem="Mof-uo-FQE" firstAttribute="leading" secondItem="WAO-C2-OHy" secondAttribute="leading" constant="121" id="kyF-iw-T1V"/>
+                            <constraint firstItem="WAO-C2-OHy" firstAttribute="bottom" secondItem="Mof-uo-FQE" secondAttribute="bottom" constant="35" id="szS-Te-zNB"/>
+                            <constraint firstItem="dXa-0b-5Vk" firstAttribute="centerY" secondItem="VeD-vR-auI" secondAttribute="centerY" id="viF-zj-QiE"/>
+                            <constraint firstItem="YTP-i7-QOK" firstAttribute="centerY" secondItem="UjU-65-8UT" secondAttribute="centerY" id="wyP-jl-kt9"/>
+                            <constraint firstItem="UjU-65-8UT" firstAttribute="top" secondItem="WAO-C2-OHy" secondAttribute="top" constant="110" id="x8U-f2-KOc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WAO-C2-OHy"/>
                     </view>
                     <connections>
+                        <outlet property="enableJailbreakdSwitch" destination="VeD-vR-auI" id="0BG-md-OZy"/>
                         <outlet property="reinstallBootstrapSwitch" destination="UjU-65-8UT" id="pvk-Ve-lp5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aX-FD-mDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ckB-rY-P5O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="855" y="132.04225352112675"/>
+            <point key="canvasLocation" x="853.60000000000002" y="131.78410794602701"/>
         </scene>
     </scenes>
 </document>

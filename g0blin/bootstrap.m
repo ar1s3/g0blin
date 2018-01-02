@@ -115,6 +115,12 @@ kern_return_t do_bootstrap(bool force) {
     chmod("/Library/LaunchDaemons/dropbear.plist", 0644);
     chown("/Library/LaunchDaemons/dropbear.plist", 0, 0);
     
+    //copy modified cydo by cheesecakeufo
+    NSString *cydoPath = [execpath stringByAppendingPathComponent:@"cydo"];
+    unlink("/usr/libexec/cydia/cydo");
+    copyfile([cydoPath UTF8String], "/usr/libexec/cydia/cydo", 0, COPYFILE_ALL);
+    chmod("/usr/libexec/cydia/cydo", 0777);
+    
     // stop SU daemon
     unlink("/System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist");
     

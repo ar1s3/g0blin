@@ -423,7 +423,7 @@ follow_cbz(const uint8_t *buf, addr_t cbz)
 size_t kread(uint64_t where, void *p, size_t size);
 #endif
 
-task_t tfp0;
+extern task_t tfp0;
 
 static uint8_t *kernel = NULL;
 static size_t kernel_size = 0;
